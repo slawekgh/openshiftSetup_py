@@ -5,8 +5,8 @@ try {
             openshiftBuild(buildConfig: 'slawek-bc-simple', showBuildLogs: 'true')
           }
           stage('deploy') {
-            openshiftDeploy(deploymentConfig: 'slawekdeploj')
-            openshiftScale(deploymentConfig: 'slawekdeploj',replicaCount: '4')
+            //openshiftDeploy(deploymentConfig: 'slawekdeploj')
+            //openshiftScale(deploymentConfig: 'slawekdeploj',replicaCount: '4')
              
           }
         }
