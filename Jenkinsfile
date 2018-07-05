@@ -2,7 +2,7 @@ try {
    timeout(time: 20, unit: 'MINUTES') {
       node() {
           stage('build') {
-            openshiftBuild(buildConfig: 'slawek-build-config', showBuildLogs: 'true')
+            openshiftBuild(buildConfig: 'slawek-bc-simple', showBuildLogs: 'true')
           }
           stage('deploy') {
             openshiftDeploy(deploymentConfig: 'slawekdeploj')
