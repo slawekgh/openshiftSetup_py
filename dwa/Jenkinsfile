@@ -2,11 +2,11 @@ try {
    timeout(time: 20, unit: 'MINUTES') {
       node() {
           stage('build') {
-            openshiftBuild(buildConfig: 'dupa-bc-simple', showBuildLogs: 'true')
+            openshiftBuild(buildConfig: 'slawek-bc-simple', showBuildLogs: 'true')
           }
           stage('deploy') {
-            //openshiftDeploy(deploymentConfig: 'slawekdeploj')
-            //openshiftScale(deploymentConfig: 'slawekdeploj',replicaCount: '5')
+            openshiftDeploy(deploymentConfig: 'slawekdeploj')
+            openshiftScale(deploymentConfig: 'slawekdeploj',replicaCount: '5')
              
           }
         }
