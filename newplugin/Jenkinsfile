@@ -1,10 +1,13 @@
 openshift.withCluster() { 
+    stage('create app')
     def created = openshift.newApp( 'gimboo/nginx_nonroot' )        
     echo "new-app created ${created.count()} objects named: ${created.names()}"
     
+    stage('selector 1')
     //zawezenie selectora do servicu
     def services = created.narrow('services')
- stage('build')
+    
+    stage('selector 2')
     //zawezenie selectora do dc
     def dcs = created.narrow('dc')
     def dc = dcs.object()
