@@ -1,11 +1,14 @@
 openshift.withCluster() { 
-    echo "Hello from the project running Jenkins: ${openshift.project()}"
-    def dupaSelector = openshift.selector( 'pod' )
-    echo "mamy ${dupaSelector.count()} podow w  projekcie ${openshift.project()}"
-    echo "nazywaja sie: ${dupaSelector.names()}"
-    echo "------bleble------------"
-    dupaSelector.withEach {
-        echo "POD: ${it.name()} is defined in ${openshift.project()}"
-    }
+    def created = openshift.newApp( 'gimboo/nginx_nonroot' )        
+    echo "new-app created ${created.count()} objects named: ${created.names()}"
+    
+    //zawezenie selectora do servicu
+    def services = created.narrow('services')
 
+    //zawezenie selectora do dc
+    def dcs = created.narrow('dc')
+    def dc = dcs.object()
+    echo "new-app created a ${dc.kind} with name ${dc.metadata.name}"
+    echo "The object has labels: ${dc.metadata.labels}"
+        
 }
