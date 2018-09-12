@@ -4,7 +4,7 @@ openshift.withCluster() {
     
     //zawezenie selectora do servicu
     def services = created.narrow('services')
-
+ stage('build')
     //zawezenie selectora do dc
     def dcs = created.narrow('dc')
     def dc = dcs.object()
