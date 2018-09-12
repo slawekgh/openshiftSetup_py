@@ -1,4 +1,4 @@
-openshift.withCluster( 'https://192.168.43.117:8443', 'QnMnpw_Z0FXElX_KThzvynsNE5_NeezpnGGxqP' ) {
+openshift.withCluster( 'https://192.168.43.168:8443', 'QnMnpw_Z0FXElX_KThzvynsNE5_NeezpnGGxqP' ) {
     openshift.withProject( 'myproject' ) {
         echo "Hello from project ${openshift.project()} in cluster ${openshift.cluster()}"
     }
