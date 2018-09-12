@@ -1,5 +1,11 @@
-openshift.withCluster( 'https://192.168.43.168:8443', 'QnMnpw_Z0FXElzvynsNE5_NeezpnGGxqP' ) {
-    openshift.withProject( 'myproject' ) {
-        echo "Hello from project ${openshift.project()} in cluster ${openshift.cluster()}"
+openshift.withCluster() { 
+    echo "Hello from the project running Jenkins: ${openshift.project()}"
+    def dupaSelector = openshift.selector( 'pod' )
+    echo "mamy ${dupaSelector.count()} podow w  projekcie ${openshift.project()}"
+    echo "nazywaja sie: ${dupaSelector.names()}"
+    echo "------bleble------------"
+    dupaSelector.withEach {
+        echo "POD: ${it.name()} is defined in ${openshift.project()}"
     }
+
 }
