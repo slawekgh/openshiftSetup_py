@@ -6,8 +6,10 @@ try {
           }
           stage('deploy') {
             openshiftDeploy(deploymentConfig: 'slawekdeploj')
+          }
+         
+          stage('scale deploy') {
             openshiftScale(deploymentConfig: 'slawekdeploj',replicaCount: '1')
-             
           }
         }
    }
