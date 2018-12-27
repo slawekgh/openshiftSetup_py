@@ -2,7 +2,7 @@ try {
    timeout(time: 20, unit: 'MINUTES') {
       node() {
           stage('build') {
-            openshiftBuild(buildConfig: 'slawek-bc-simple', showBuildLogs: 'true')
+            openshiftBuild(buildConfig: 'bc-src-git-strategy-docker', showBuildLogs: 'true')
           }
           stage('deploy') {
             //openshiftDeploy(deploymentConfig: 'slawekdeploj')
